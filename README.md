@@ -9,7 +9,29 @@ This system provides a proof-of-concept for intelligent traffic management by de
 *   **Audio Detection**: A Convolutional Neural Network (CNN) classifies sound clips to distinguish between ambulance sirens, firetruck sirens, and general traffic noise. The audio is converted into a spectrogram image, which is then fed into the model.
 *   **Video Detection**: A YOLOv3-tiny model is used for real-time object detection to visually identify ambulances in a video feed.
 
-## Project Structure
+## 📁 Project Structure
+
+```sh
+└── Ambulance_detection/
+    ├── README.md
+    ├── audio_model
+    │   ├── .gitignore
+    │   ├── dataset
+    │   ├── mic.py
+    │   ├── model
+    │   ├── report
+    │   ├── requirements.txt
+    │   └── train.ipynb
+    ├── video_model
+    │   ├── save_.py
+    │   ├── yolo_object_detection.py
+    │   ├── yolov3-tiny_training.cfg
+    │   └── yolov3-tiny_training_final.weights
+    └── videos
+        ├── audio.mp4
+        └── out_yolo_ambu.mp4
+```
+
 
 The repository is organized into two main components:
 
