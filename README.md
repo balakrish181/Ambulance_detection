@@ -1,36 +1,73 @@
-# Ambulance Detect V1
+# Ambulance Detection System
 
-Coded for the competition Pragyan.
+A project developed for the Pragyan competition to identify emergency vehicles in real-time using audio and video analysis, helping to prioritize their route through traffic.
 
-## What it is?
+## Overview
 
-Ambulance Saves Life. When Its gets Struck in Traffic, Bad Things can Happen. This Project Gives a Proposal to automatically Prioritize Traffic Lights for the Ambulance Route. 
+This system provides a proof-of-concept for intelligent traffic management by detecting ambulance sirens and vehicles. It uses a combination of audio and video processing to achieve this:
 
-## Implementation
+*   **Audio Detection**: A Convolutional Neural Network (CNN) classifies sound clips to distinguish between ambulance sirens, firetruck sirens, and general traffic noise. The audio is converted into a spectrogram image, which is then fed into the model.
+*   **Video Detection**: A YOLOv3-tiny model is used for real-time object detection to visually identify ambulances in a video feed.
 
-1. Record Audio Clip From Microphone
-2. Convert The waveform to Spectrogram image
-3. Classify the Spectrogram Image Using CNN (Convolutional Neural Network)
+## Project Structure
 
-#### The Model is Currently Trained to Classify 
+The repository is organized into two main components:
 
-- Ambulance Sound
-- Firetruck Sound
-- Traffic Sound
+*   `audio_model/`: Contains the complete pipeline for audio-based siren detection.
+    *   `train.ipynb`: A Jupyter Notebook to train the audio classification model.
+    *   `mic.py`: A script to run live inference using a microphone.
+    *   `model/`: Contains the pre-trained TensorFlow model.
+    *   `dataset/`: Holds the audio dataset for training.
+*   `video_model/`: Contains the pipeline for video-based vehicle detection.
+    *   `yolo_object_detection.py`: A script for running inference on video files or a live camera feed.
+    *   `yolov3-tiny_training_final.weights`: Pre-trained weights for the YOLO model.
+*   `videos/`: Contains sample videos for testing the video detection model.
 
-The Model is Trained With this kaggle Dataset: https://www.kaggle.com/vishnu0399/emergency-vehicle-siren-sounds
+## Getting Started
 
-## How To Run the Model?
+### Prerequisites
 
-Install Dependencies: 
+*   Python 3.7+
+*   Pip
 
+### Installation
+
+1.  **Clone the repository:**
+    ```bash
+    git clone <your-repo-url>
+    cd <repository-name>
+    ```
+
+2.  **Install the required dependencies:**
+    The audio model has its own set of dependencies.
+    ```bash
+    pip install -r audio_model/requirements.txt
+    ```
+    *(Note: The video model dependencies like OpenCV need to be installed separately if not already present.)*
+
+### How to Run
+
+#### Audio Detection (from Microphone)
+
+To start detecting sounds from your microphone in real-time:
+
+```bash
+python audio_model/mic.py
 ```
-pip install -r requirements.txt
+
+The script will listen for sounds and classify them as "Ambulance," "Firetruck," or "Traffic."
+
+#### Video Detection
+
+To run object detection on a video file:
+
+```bash
+python video_model/yolo_object_detection.py --video videos/your_video.mp4
 ```
 
-There are Two Files Provided: 
+## Dataset
 
-- **mic.py** - To run inference on Microphone
-- **train.ipynb** - To train the model using above mentioned Dataset
+The audio classification model was trained on the [Emergency Vehicle Siren Sounds](https://www.kaggle.com/vishnu0399/emergency-vehicle-siren-sounds) dataset from Kaggle.
 
-A pretrained model is already provided in the **model** folder, **mic.py** can be run on that model without hassle
+---
+*This project was developed a while back for a competition and has been reorganized for clarity and demonstration.*

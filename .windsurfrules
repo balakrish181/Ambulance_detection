@@ -1,0 +1,48 @@
+<!-- # .windsurfrules
+
+# FRONTEND (React + Tailwind)
+- Use React functional components only
+- Style using Tailwind CSS utility classes, no custom CSS files
+- Name all components in PascalCase (e.g., UploadSection.tsx)
+- Break UI into small, single-responsibility components
+- Use hooks (`useState`, `useEffect`, `useRef`) for logic/state
+- Handle image files as blobs for preview and download
+- Use axios or fetch for API requests with async/await
+
+# BACKEND (FastAPI + Python)
+- Follow PEP8 Python formatting and typing
+- Organize code into: main.py, models/, utils/
+- Use FastAPI with Pydantic models for request/response validation
+- Accept images via `multipart/form-data` in POST routes
+- Store images in `tempfile` or in-memory (no persistent DB)
+- Clean up temp images/files after response
+- Add structured error handling (422, 500, etc.)
+
+# ROUTES
+- POST /anonymize-face → Accepts user photo, returns anonymized image
+- POST /virtual-tryon → Accepts user photo + clothing image + optional mask
+
+# IMAGE PROCESSING
+- Use SAM for segmentation/mask generation
+- Anonymization options:
+  - OpenCV blur (adjustable)
+  - NullFace inpainting
+  - Diffusion-based anonymization
+- Try-on overlay:
+  - Stable Diffusion XL Inpainting + ControlNet (mask-guided)
+  - Use Pillow/OpenCV for image I/O and blending
+- Structure processing logic into isolated functions
+
+# TESTING
+- Use pytest for backend unit testing
+- Write tests for:
+  - Anonymization function output
+  - Inpainting overlay
+  - Temporary file handling
+- Use FastAPI’s OpenAPI docs for manual testing
+
+# GENERAL
+- Stateless design: no DB, no user data persistence
+- Use `.env` for model/config paths
+- Use type hints and clear parameter names in all Python code
+- Ensure full-resolution export/download from frontend -->
