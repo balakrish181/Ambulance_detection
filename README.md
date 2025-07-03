@@ -9,6 +9,13 @@ This system provides a proof-of-concept for intelligent traffic management by de
 *   **Audio Detection**: A Convolutional Neural Network (CNN) classifies sound clips to distinguish between ambulance sirens, firetruck sirens, and general traffic noise. The audio is converted into a spectrogram image, which is then fed into the model.
 *   **Video Detection**: A YOLOv3-tiny model is used for real-time object detection to visually identify ambulances in a video feed.
 
+## 🎥 Demonstration
+
+Check out a video of the system in action. This clip showcases both the audio and video detection capabilities.
+
+[**Watch the Demonstration Video (audio.mp4)**](videos/audio.mp4)
+
+
 ## 📁 Project Structure
 
 ```sh
