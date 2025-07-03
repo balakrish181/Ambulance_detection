@@ -34,8 +34,8 @@ The repository is organized into two main components:
 
 1.  **Clone the repository:**
     ```bash
-    git clone <your-repo-url>
-    cd <repository-name>
+    git clone Ambulance_detection
+    cd Ambulance_detection
     ```
 
 2.  **Install the required dependencies:**
